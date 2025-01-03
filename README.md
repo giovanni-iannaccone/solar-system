@@ -1,4 +1,4 @@
-# Solar System Simulator 🌌
+# 🌌 Solar System Simulator
 
 This simulator allows you to explore our solar system in 3D. You can interact with planets, zoom in and out, and observe their orbits in real-time. It's a fun and educational way to learn about the movements and characteristics of the planets and other celestial objects in our solar system.
 
@@ -16,7 +16,7 @@ cd solar-system
 ```
 
 2. Install dependencies
-```bash
+```
 sudo apt-get install libglfw3 libglfw3-dev libglew-dev libglm-dev
 ```
 
@@ -25,7 +25,7 @@ sudo apt-get install libglfw3 libglfw3-dev libglew-dev libglm-dev
 make && ./solarsystem
 ```
 
-### Controls 🎮
+### 🎮 Controls
 - **W** - Move camera up (Y-axis)
 - **S** - Move camera down (Y-axis)
 - **A** - Move camera left (X-axis)

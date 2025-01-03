@@ -24,6 +24,8 @@ private:
     GLdouble centerX, centerY, centerZ;
     GLdouble upX, upY, upZ;
     long lastUpdatedTime;
+
+    void addStars();
 };
 
 #endif

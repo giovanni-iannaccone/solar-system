@@ -12,7 +12,6 @@
 #define MOVE_SPEED 5.0f
 #define FAST_MOVE_SPEED 10.0f
 
-#define TIMEPAST 1
 #define SELFROTATE 3
 
 SolarSystem::SolarSystem() {
@@ -23,35 +22,7 @@ SolarSystem::SolarSystem() {
     upX = upY = 0;
     upZ = 1;
 
-    GLfloat rgbColor[3] = {1, 0, 0};
-    stars[Sun]     = new LightPlanet(SUN_RADIUS, 0, 0, SELFROTATE, nullptr, rgbColor);
-    
-    SET_VALUE_3(rgbColor, .2, .2, .5);
-    stars[Mercury] = new Planet(MER_RADIUS, MER_SUN_DIS, MER_SPEED, SELFROTATE, stars[Sun], rgbColor);
-    
-    SET_VALUE_3(rgbColor, 1, .7, 0);
-    stars[Venus]   = new Planet(VEN_RADIUS, VEN_SUN_DIS, VEN_SPEED, SELFROTATE, stars[Sun], rgbColor);
-    
-    SET_VALUE_3(rgbColor, 0, 1, 0);
-    stars[Earth]   = new Planet(EAR_RADIUS, EAR_SUN_DIS, EAR_SPEED, SELFROTATE, stars[Sun], rgbColor);
-    
-    SET_VALUE_3(rgbColor, 1, 1, 0);
-    stars[Moon]    = new Planet(MOO_RADIUS, MOO_SUN_DIS, MOO_SPEED, SELFROTATE, stars[Earth], rgbColor);
-    
-    SET_VALUE_3(rgbColor, 1, .5, .5);
-    stars[Mars]    = new Planet(MAR_RADIUS, MAR_SUN_DIS, MAR_SPEED, SELFROTATE, stars[Sun], rgbColor);
-    
-    SET_VALUE_3(rgbColor, 1, 1, .5);
-    stars[Jupiter] = new Planet(JUP_RADIUS, JUP_SUN_DIS, JUP_SPEED, SELFROTATE, stars[Sun], rgbColor);
-    
-    SET_VALUE_3(rgbColor, .5, 1, .5);
-    stars[Saturn]  = new Planet(SAT_RADIUS, SAT_SUN_DIS, SAT_SPEED, SELFROTATE, stars[Sun], rgbColor);
-
-    SET_VALUE_3(rgbColor, .4, .4, .4);
-    stars[Uranus]  = new Planet(URA_RADIUS, URA_SUN_DIS, URA_SPEED, SELFROTATE, stars[Sun], rgbColor);
-
-    SET_VALUE_3(rgbColor, .5, .5, 1);
-    stars[Neptune] = new Planet(NEP_RADIUS, NEP_SUN_DIS, NEP_SPEED, SELFROTATE, stars[Sun], rgbColor);
+    addStars();
 }
 
 SolarSystem::~SolarSystem() {
@@ -141,4 +112,36 @@ void SolarSystem::onKeyboard(unsigned char key, int x, int y) {
         default:
             break;
     }
+}
+
+void SolarSystem::addStars() {
+    GLfloat rgbColor[3] = {1, 0, 0};
+    stars[Sun]     = new LightPlanet(SUN_RADIUS, 0, 0, SELFROTATE, nullptr, rgbColor);
+    
+    SET_VALUE_3(rgbColor, .2, .2, .5);
+    stars[Mercury] = new Planet(MER_RADIUS, MER_SUN_DIS, MER_SPEED, SELFROTATE, stars[Sun], rgbColor);
+    
+    SET_VALUE_3(rgbColor, 1, .7, 0);
+    stars[Venus]   = new Planet(VEN_RADIUS, VEN_SUN_DIS, VEN_SPEED, SELFROTATE, stars[Sun], rgbColor);
+    
+    SET_VALUE_3(rgbColor, 0, 1, 0);
+    stars[Earth]   = new Planet(EAR_RADIUS, EAR_SUN_DIS, EAR_SPEED, SELFROTATE, stars[Sun], rgbColor);
+    
+    SET_VALUE_3(rgbColor, 1, 1, 0);
+    stars[Moon]    = new Planet(MOO_RADIUS, MOO_SUN_DIS, MOO_SPEED, SELFROTATE, stars[Earth], rgbColor);
+    
+    SET_VALUE_3(rgbColor, 1, .5, .5);
+    stars[Mars]    = new Planet(MAR_RADIUS, MAR_SUN_DIS, MAR_SPEED, SELFROTATE, stars[Sun], rgbColor);
+    
+    SET_VALUE_3(rgbColor, 1, 1, .5);
+    stars[Jupiter] = new Planet(JUP_RADIUS, JUP_SUN_DIS, JUP_SPEED, SELFROTATE, stars[Sun], rgbColor);
+    
+    SET_VALUE_3(rgbColor, .5, 1, .5);
+    stars[Saturn]  = new Planet(SAT_RADIUS, SAT_SUN_DIS, SAT_SPEED, SELFROTATE, stars[Sun], rgbColor);
+
+    SET_VALUE_3(rgbColor, .4, .4, .4);
+    stars[Uranus]  = new Planet(URA_RADIUS, URA_SUN_DIS, URA_SPEED, SELFROTATE, stars[Sun], rgbColor);
+
+    SET_VALUE_3(rgbColor, .5, .5, 1);
+    stars[Neptune] = new Planet(NEP_RADIUS, NEP_SUN_DIS, NEP_SPEED, SELFROTATE, stars[Sun], rgbColor);
 }
