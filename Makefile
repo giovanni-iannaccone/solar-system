@@ -1,16 +1,25 @@
 CXX = g++
 EXEC = solarsystem
-SOURCES = src/main.cpp src/planet.cpp src/star.cpp src/solar_system.cpp
-OBJECTS = main.o planet.o star.o solar_system.o
+
+SRC_DIR = src
+BUILD_DIR = build
+
+SRCS = $(SRC_DIR)/main.cpp $(SRC_DIR)/planet.cpp $(SRC_DIR)/star.cpp $(SRC_DIR)/solar_system.cpp
+OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
+
 LDFLAGS = -lglut -lGL -lGLU
 
 all: $(EXEC)
 
-$(EXEC): $(OBJECTS)
-	$(CXX) $(OBJECTS) $(LDFLAGS) -o $(EXEC)
+$(EXEC): $(OBJS)
+	@mkdir -p $(BUILD_DIR)
+	$(CXX) $(OBJS) $(LDFLAGS) -o $(EXEC)
 
-%.o: src/%.cpp
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(BUILD_DIR)
 	$(CXX) -c $< -o $@
 
 clean:
-	rm -f $(EXEC) *.gdb *.o
+	rm -f $(EXEC) *.gdb $(BUILD_DIR)/*.o
+
+.PHONY: all clean
