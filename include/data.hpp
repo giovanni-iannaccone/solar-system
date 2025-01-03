@@ -1,3 +1,6 @@
+#ifndef data_hpp
+#define data_hpp
+
 #include "star.hpp"
 
 #define STARS_NUM 10
@@ -13,15 +16,15 @@
 #define URA_RADIUS  25.56
 #define NEP_RADIUS  24.78
 
-#define MER_SUN_DIS 62.06
-#define VEN_SUN_DIS 115.56
-#define EAR_SUN_DIS 168.00
-#define MOO_SUN_DIS 26.01
-#define MAR_SUN_DIS 228.00
-#define JUP_SUN_DIS 333.40
-#define SAT_SUN_DIS 428.10
-#define URA_SUN_DIS 848.00
-#define NEP_SUN_DIS 949.10
+#define MER_SUN_DIS 74.47
+#define VEN_SUN_DIS 138.67
+#define EAR_SUN_DIS 201.60
+#define MOO_EAR_DIS 31.21
+#define MAR_SUN_DIS 273.60
+#define JUP_SUN_DIS 400.08
+#define SAT_SUN_DIS 513.72
+#define URA_SUN_DIS 1017.60
+#define NEP_SUN_DIS 1138.8 
 
 #define MER_SPEED   87.0
 #define VEN_SPEED   225.0
@@ -50,3 +53,5 @@ enum STARS {
     Uranus,
     Neptune
 };
+
+#endif
